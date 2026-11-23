@@ -1,0 +1,270 @@
+/*
+NOTE: AI WAS USED TO CREATE THE CSS FOR THE PROGRAM. UNFORTUNATELY GRAPHIC DESIGN IS NOT MY CURRENT FOCUS. :(
+ */
+
+:root {
+    --bg: #100e17;
+    --panel: #1d1929;
+    --panel-edge: #352f4a;
+    --ink: #ece8f6;
+    --muted: #b6adcd;
+    --gold: #f2d271;
+    --danger: #ffa795;
+    --ok: #8fe3b2;
+    --radius: 14px;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 1rem;
+    min-height: 100vh;
+    background-color: var(--bg);
+    background-image:
+            radial-gradient(circle at 20% 0%, #241f36 0%, transparent 55%),
+            radial-gradient(circle at 90% 100%, #1c2030 0%, transparent 50%);
+    color: var(--ink);
+    line-height: 1.55;
+}
+
+header {
+    margin-bottom: 1rem;
+}
+
+h1 {
+    margin: 0 0 0.25rem;
+    font-size: 1.6rem;
+    letter-spacing: 0.02em;
+    color: var(--gold);
+}
+
+h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.tagline,
+.hint {
+    margin: 0 0 0.5rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+main {
+    display: block;
+}
+
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--panel-edge);
+    border-radius: var(--radius);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.field {
+    margin-bottom: 0.75rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+input {
+    width: 100%;
+    min-height: 44px;
+    padding: 0.55rem 0.7rem;
+    font-size: 1rem;
+    color: var(--ink);
+    background: #120f1c;
+    border: 1px solid var(--panel-edge);
+    border-radius: 8px;
+}
+
+input::placeholder {
+    color: #7d7595;
+}
+
+input:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+}
+
+.btn {
+    display: inline-block;
+    min-height: 44px;
+    padding: 0.6rem 1.1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #1a1526;
+    background: var(--gold);
+    border: 1px solid #c9a94c;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #ffe49a;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.message {
+    min-height: 1.4rem;
+    margin: 0.6rem 0 0;
+    font-size: 0.9rem;
+}
+
+.message.error {
+    color: var(--danger);
+    border-left: 3px solid var(--danger);
+    padding-left: 0.5rem;
+}
+
+.message.success {
+    color: var(--ok);
+    border-left: 3px solid var(--ok);
+    padding-left: 0.5rem;
+}
+
+.loot-list {
+    list-style: none;
+    margin: 0 0 0.75rem;
+    padding: 0;
+}
+
+.loot-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px dashed var(--panel-edge);
+}
+
+.loot-name {
+    flex: 1 1 auto;
+    overflow-wrap: anywhere;
+}
+
+.loot-value {
+    flex: 0 0 auto;
+    font-weight: bold;
+    color: var(--gold);
+    font-variant-numeric: tabular-nums;
+}
+
+.remove-btn {
+    flex: 0 0 auto;
+    width: 32px;
+    min-height: 32px;
+    padding: 0;
+    font-size: 0.9rem;
+    color: var(--ink);
+    background: #2a2440;
+    border: 1px solid var(--panel-edge);
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    color: #1a1526;
+    background: var(--danger);
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0;
+    padding: 0.55rem 0;
+    border-top: 1px solid var(--panel-edge);
+    font-size: 1rem;
+}
+
+.total-row strong {
+    color: var(--gold);
+    font-variant-numeric: tabular-nums;
+}
+
+.results {
+    margin-top: 1rem;
+}
+
+code {
+    padding: 0.1rem 0.3rem;
+    background: #120f1c;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.reflection p {
+    margin: 0 0 0.75rem;
+}
+
+/* ---------- Tablet / desktop: 768px and wider ---------- */
+@media (min-width: 768px) {
+    body {
+        padding: 1.5rem;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "party      add-loot"
+            "loot-list  split"
+            "reflection reflection";
+        gap: 1.25rem;
+        align-items: stretch;
+    }
+
+    .panel {
+        margin-bottom: 0;
+    }
+
+    .party      { grid-area: party; }
+    .add-loot   { grid-area: add-loot; }
+    .loot-list-panel { grid-area: loot-list; }
+    .split-panel { grid-area: split; }
+    .reflection { grid-area: reflection; }
+
+    .loot-list-panel,
+    .split-panel {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .loot-list-panel .total-row {
+        margin-top: auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .btn:active {
+        transform: none;
+    }
+}
