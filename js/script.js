@@ -47,7 +47,7 @@ function updateTotals() {
     const SPLIT_TOTAL_EL = document.getElementById("splitTotal");
     const PER_MEMBER_EL = document.getElementById("perMember");
 
-    // Total loot is displayed from the same calc
+    // Total loot is displayed from the same calculation
     TOTAL_EL.textContent = formatMoney(TOTAL);
     SPLIT_TOTAL_EL.textContent = formatMoney(TOTAL);
 
@@ -61,13 +61,15 @@ function updateTotals() {
         PER_MEMBER_EL.textContent = "\u2014";
     }
 }
-
+// Rendering Loot
 function renderLoot() {
     const LIST = document.getElementById("lootList");
     const EMPTY = document.getElementById("emptyLoot");
 
+    // Clears the previous render
     LIST.textContent = "";
 
+    // Format for creating loot items
     const FRAGMENT = document.createDocumentFragment();
     for (let i = 0; i < loot.length; i++) {
         const ITEM = loot[i];
@@ -83,6 +85,7 @@ function renderLoot() {
         VALUE.className = "loot-value";
         VALUE.textContent = formatMoney(ITEM.value);
 
+        // Remove button
         const REMOVE_BUTTON = document.createElement("button");
         REMOVE_BUTTON.type = "button";
         REMOVE_BUTTON.className = "button remove-btn";
@@ -108,6 +111,7 @@ function createRemoveHandler(index) {
     };
 }
 
+// Adding Loot
 function addLoot() {
     const NAME_INPUT = document.getElementById("lootName");
     const VALUE_INPUT = document.getElementById("lootValue");
@@ -149,6 +153,7 @@ function addLoot() {
     setMessage(MESSAGE, "Added \"" + NAME + "\" for " + formatMoney(toCents(VALUE) / 100) + ".", false); // FIX 5
 }
 
+// Removing loot
 function removeLoot(index) {
     if (index < 0 || index >= loot.length) {
         return;
@@ -165,6 +170,7 @@ function removeLoot(index) {
     setMessage(document.getElementById("lootMessage"), "Removed \"" + REMOVED.name + "\".", false);
 }
 
+// Splitting loot
 function splitLoot() {
     const MESSAGE = document.getElementById("splitMessage");
     const TOTAL = getTotalLoot();
@@ -201,6 +207,7 @@ function splitLoot() {
     setMessage(MESSAGE, text, false);
 }
 
+// Event handler
 function handleLootEnter(event) {
     if (event.key === "Enter") {
         event.preventDefault();
@@ -213,4 +220,4 @@ document.getElementById("splitLoot").addEventListener("click", splitLoot);
 document.getElementById("lootName").addEventListener("keydown", handleLootEnter);
 document.getElementById("lootValue").addEventListener("keydown", handleLootEnter);
 
-renderLoot();
+renderLoot(); // Clears on first load
