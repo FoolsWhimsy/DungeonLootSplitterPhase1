@@ -60,7 +60,17 @@
     <!-- Creates the Logic Explanation Section -->
     <section class="panel reflection" aria-labelledby="logic-title">
         <h2 id="logic-title">Logic Explanation</h2>
-        <p></p>
+        <p>In order to get this to work, I set up an array to hold all of the loot items. Each time you add loot, it checks
+        the name and value using if statements then pushes the object onto the array. Nothing is written to storage, so each
+        reload clears the board.</p>
+
+        <p>For the loops, we handle the value in cents with getTotalLoot() so we can keep an accurate number and the second loop
+        goes through the array and creates one list item per object so the list is accurate. Both Total Loot reads from one calc
+        instead of keeping separate counters so as to be most accurate.</p>
+
+        <p>We have if statements to handle errors, such as blank names, missing values, etc. We check and verify that everything is
+        in order before going through with splitting values. If there is an issue, a message will show up on the page to let the user know. </p>
+
     </section>
 </main>
 <!-- Javascript Link -->
